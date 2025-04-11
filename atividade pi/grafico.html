@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Gráficos</title>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <link rel="stylesheet" href="grafico.css">
+</head>
+
+<body>
+      <div class="container-pai">
+            <h1>Atividade - Chart.JS</h1>
+            <div class="container">
+                  <div class="first-grafico">
+                        <canvas id="linha"></canvas>
+                  </div>
+                  <div class="first-grafico">
+                        <canvas id="barra"></canvas>
+                  </div>
+            </div>
+      </div>
+</body>
+<script>
+      const graficoLinha = document.getElementById('linha');
+
+      new Chart(graficoLinha, {
+            type: 'line',
+            data: {
+                  labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                  datasets: [{
+                        label: 'temperatura',
+                        data: [30, 29, 28, 25, 22, 23],
+                        borderColor: "red",
+                        backgroundColor: "red",
+                        borderWidth: 1
+                  },
+                  {
+                        label: 'Umidade',
+                        data: [80, 82, 80, 85, 80, 83],
+                        borderColor: "blue",
+                        backgroundColor: "blue",
+                        borderWidth: 1
+                  }
+                  ]
+            },
+            options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  scales: {
+                        y: {
+                              beginAtZero: true,
+                              title: {
+                                    display: true,
+                                    text: 'Valores'
+                              }
+                        },
+                        x: {
+                              title: {
+                                    display: true,
+                                    text: 'Horário'
+                              }
+                        }
+                  },
+                  plugins: {
+                        title: {
+                              display: true,
+                              text: 'Temperatura e Umidade',
+                              font: {
+                                    size: 18
+                              }
+                        }
+                  },
+                  interaction: {
+                        mode: 'index',
+                        intersect: false
+                  }
+            }
+      });
+
+      const graficoBarra = document.getElementById('barra');
+
+      new Chart(graficoBarra, {
+            type: 'bar',
+            data: {
+                  labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                  datasets: [{
+                        label: 'Temperatura Média',
+                        data: [22, 24, 27, 23, 20, 18],
+                        borderColor: "red",
+                        backgroundColor: "red",
+                        borderWidth: 1
+                  },
+                  {
+                        label: 'Umidade Média',
+                        data: [90, 89, 93, 87, 88, 82],
+                        borderColor: "blue",
+                        backgroundColor: "blue",
+                        borderWidth: 1
+                  }
+                  ]
+            },
+            options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  scales: {
+                        y: {
+                              beginAtZero: true,
+                              title: {
+                                    display: true,
+                                    text: 'Valores'
+                              }
+                        },
+                        x: {
+                              title: {
+                                    display: true,
+                                    text: 'Mês'
+                              }
+                        }
+                  },
+                  plugins: {
+                        title: {
+                              display: true,
+                              text: 'Temperatura e Umidade Média',
+                              font: {
+                                    size: 18
+                              }
+                        }
+                  },
+                  interaction: {
+                        mode: 'index',
+                        intersect: false
+                  }
+            }
+      });
+</script>
+
+</html>
